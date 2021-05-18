@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: europa-replicaset
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: europa-pod
+      labels:
+        app: nginx
+        tier: oracle
+    spec:
+      containers: 
+        - name: europa-pod-nginx
+          image: nginx
+  selector:
+    matchLabels: 
+      tier: oracle

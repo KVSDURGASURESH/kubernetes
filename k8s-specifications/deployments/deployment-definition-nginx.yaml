@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: europa-deployment-nginx
+  labels:
+    app: nginx
+    tier: front-end
+spec:
+  template:
+    metadata:
+      name: europa-pod-nginx
+      labels:
+        app: nginx
+        tier: front-end
+    spec:
+      containers:
+        - name: europa-nginx
+          image: nginx:1.18.0
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: front-end

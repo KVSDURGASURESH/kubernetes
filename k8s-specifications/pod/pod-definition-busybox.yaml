@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: europa-pod-busybox
+  labels:
+    app: busybox
+    tier: backend
+    group: europa
+spec:
+  containers:
+  - name: europa-busybox
+    image: busybox
